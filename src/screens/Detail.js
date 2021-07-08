@@ -1,3 +1,6 @@
+import { useLocation } from "react-router-dom";
+
 export default function Detail() {
-  return <h2>Detail</h2>
+  let query = new URLSearchParams(useLocation().search);
+  return <h2>Detail Query: {query.get("_path")}</h2>
 }

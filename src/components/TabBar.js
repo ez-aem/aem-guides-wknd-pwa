@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
+import { Theme } from "../CONSTANTS";
 import Home from "../screens/Home";
 import Adventures from "../screens/Adventures";
 import Detail from "../screens/Detail";
@@ -11,14 +12,13 @@ export default function TabBar() {
         <nav style={styles.tabs}>
           <Link to="/" style={styles.tab}>Home</Link>
           <Link to="/adventures" style={styles.tab}>Adventures</Link>
-          <Link to="/adventures:path" style={styles.tab}>Detail</Link>
         </nav>
       </div>
       <Switch>
-        <Route path="/adventures">
+        <Route exact path="/adventures">
           <Adventures />
         </Route>
-        <Route path="/adventures:path">
+        <Route path="/detail">
           <Detail />
         </Route>
         <Route path="/">
@@ -51,7 +51,7 @@ const styles = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    color: "#fff",
+    color: Theme.colors.text,
     flex: 1,
     padding: "20px",
     textDecoration: "none"
