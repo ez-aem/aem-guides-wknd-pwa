@@ -1,25 +1,51 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+
+import { Theme } from "./CONSTANTS";
+import TabBar from "./components/TabBar";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={styles.container}>
+      <TabBar />
     </div>
   );
 }
 
-export default App;
+const styles = {
+  container: {
+    display: "flex",
+    flex: 1,
+    height: "100vh",
+    width: "100vw",
+    position: "relative",
+    flexDirection: "column",
+    backgroundColor: Theme.colors.background
+  },
+  tabsContainer: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    left: 0,
+    padding: "0 20px"
+  },
+  tabs: {
+    display: "flex",
+    flexDirection: "row",
+    listStyle: "none",
+    margin: 0,
+    padding: 0,
+    alignItems: "center",
+    justifyContent: "space-between"
+  },
+  tab: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "#fff",
+    flex: 1,
+    padding: "20px",
+    textDecoration: "none"
+  },
+}
