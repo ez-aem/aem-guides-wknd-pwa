@@ -35,7 +35,9 @@ const styles = {
     bottom: 0,
     right: 0,
     left: 0,
-    padding: "0 20px"
+    padding: "0 20px",
+    zIndex: 10,
+    backgroundColor: Theme.colors.background,
   },
   tabs: {
     display: "flex",
