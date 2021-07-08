@@ -10,12 +10,15 @@ export default function FeaturedTile(props) {
 
   const styles = {
     container: {
-      flex: 1,
       width: "100vw",
       background: containerBackground,
       padding: "20px",
       height: height ? height : "auto",
       textDecoration: "none",
+    },
+    link: {
+      flex: 1,
+      textDecoration: "none"
     },
     title: {
       fontSize: "30px",
@@ -34,11 +37,23 @@ export default function FeaturedTile(props) {
   }
 
   if (imgSrc) styles.container.backgroundSize = "cover";
+  if (!height) styles.container.flex = 1;
 
-  return (
-    <Link to={link} style={styles.container}>
-      <h2 style={styles.title}>{title}</h2>
-      {subtitle && <h4 style={styles.subtitle}>{subtitle}</h4>}
-    </Link>
-  )
+  if (link) {
+    return (
+      <div style={styles.container}>
+        <Link to={link} style={styles.link}>
+          <h2 style={styles.title}>{title}</h2>
+          {subtitle && <h4 style={styles.subtitle}>{subtitle}</h4>}
+        </Link>
+      </div>
+    )
+  } else {
+    return (
+      <div style={styles.container}>
+        <h2 style={styles.title}>{title}</h2>
+        {subtitle && <h4 style={styles.subtitle}>{subtitle}</h4>}
+      </div>
+    )
+  }
 }

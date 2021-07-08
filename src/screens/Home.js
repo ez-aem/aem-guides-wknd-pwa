@@ -4,8 +4,9 @@ import useGraphQL from "../api/useGraphQL";
 
 function AdventuresList(data) {
   if (!data) return <div>no data</div>;
-  return data.adventureList.items.map(item => (
+  return data.adventureList.items.map((item, index) => (
     <FeaturedTile
+      key={index}
       link={`/detail?_path=${item._path}`}
       title="Featured Adventure"
       subtitle={item.adventureTitle}
