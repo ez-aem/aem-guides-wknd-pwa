@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "test",
-    "slug": "test",
+    "name": "WKND Guides PWA",
+    "slug": "wknd-guides-pwa",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
