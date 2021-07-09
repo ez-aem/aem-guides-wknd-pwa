@@ -15,7 +15,7 @@ const styles = {
   container: {
     display: "flex",
     flex: 1,
-    height: "100vh",
+    minHeight: "100vh",
     width: "100vw",
     position: "relative",
     flexDirection: "column",

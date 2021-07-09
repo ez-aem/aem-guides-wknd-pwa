@@ -4,7 +4,7 @@ import { Theme } from "../CONSTANTS";
 import getRemoteImageSrc from "../utils/getRemoteImageSrc";
 
 export default function FeaturedTile(props) {
-  const { title, imgSrc, subtitle, height = "100%", link } = props;
+  const { title, imgSrc, subtitle, height, link } = props;
   const textColor = imgSrc ? Theme.colors.background : Theme.colors.text;
   const containerBackground = imgSrc ? `url(${getRemoteImageSrc(imgSrc)})` : "transparent";
 
