@@ -4,7 +4,7 @@ import useGraphQL from "../api/useGraphQL";
 import ErrorScreen from "../screens/Error";
 
 function AdventuresList(data) {
-  if (!data) return <div>no data</div>;
+  if (!data) return <FeaturedTile />;
   return data.adventureList.items.map((item, index) => (
     <FeaturedTile
       key={index}

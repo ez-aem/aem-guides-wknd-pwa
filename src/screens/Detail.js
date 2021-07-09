@@ -17,11 +17,11 @@ export default function Detail() {
   const title = data?.adventureByPath?.item?.adventureTitle || false;
   const description = data?.adventureByPath?.item?.adventureDescription?.html || false;
   const imgSrc = data?.adventureByPath?.item?.adventurePrimaryImage?._path || false;
-  console.log("data", data);
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>{title}</h1>
+      {!title && <div className="loading-skeleton" style={styles.titleSkeleton}></div>}
+      {title && <h1 style={styles.title}>{title}</h1>}
       <Image imgSrc={imgSrc} alt={title} />
       {description && <div style={styles.description} dangerouslySetInnerHTML={getDescriptionHTML(description)}></div>}
     </div>
@@ -42,5 +42,10 @@ const styles = {
   },
   description: {
     padding: "1rem",
+  },
+  titleSkeleton: {
+    height: "2.5rem",
+    width: "85%",
+    margin: "1rem"
   }
 }
