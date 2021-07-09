@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { Link, Route, Switch, useLocation } from "react-router-dom";
 import { TiHome } from "react-icons/ti";
 import { CgMenuGridR } from "react-icons/cg";
@@ -11,7 +11,6 @@ import Detail from "../screens/Detail";
 export default function TabBar() {
 
   const location = useLocation();
-  console.log('location', location)
   const isHomeSelected = location.pathname === "/";
   const isAdventuresSelected = location.pathname === "/adventures";
   return (

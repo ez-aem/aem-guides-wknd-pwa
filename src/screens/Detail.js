@@ -1,3 +1,4 @@
+import React from 'react';
 import { useLocation } from "react-router-dom";
 
 import useGraphQL from "../api/useGraphQL";

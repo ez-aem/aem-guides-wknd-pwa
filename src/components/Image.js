@@ -1,3 +1,4 @@
+import React from 'react';
 import getRemoteImageSrc from "../utils/getRemoteImageSrc";
 
 export default function Image({ imgSrc, title }) {

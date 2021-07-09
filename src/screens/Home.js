@@ -1,3 +1,5 @@
+import React from 'react';
+
 import FeaturedTile from "../components/FeaturedTile";
 import { HOME_SCREEN_DATA } from "../CONSTANTS";
 import useGraphQL from "../api/useGraphQL";
