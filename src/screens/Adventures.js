@@ -54,7 +54,7 @@ const styles = {
     flex: 1,
     display: "flex",
     flexDirection: "column",
-    marginBottom: "60px",
+    marginBottom: "6rem",
   },
   title: {
     padding: "1rem 1rem 0",

@@ -31,7 +31,7 @@ export default function Detail() {
 const styles = {
   container: {
     flex: 1,
-    marginBottom: "60px",
+    marginBottom: "6rem",
   },
   title: {
     padding: "1rem",

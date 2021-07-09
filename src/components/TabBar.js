@@ -1,4 +1,7 @@
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+
+import { Link, Route, Switch, useLocation } from "react-router-dom";
+import { TiHome } from "react-icons/ti";
+import { CgMenuGridR } from "react-icons/cg";
 
 import { Theme } from "../CONSTANTS";
 import Home from "../screens/Home";
@@ -6,12 +9,23 @@ import Adventures from "../screens/Adventures";
 import Detail from "../screens/Detail";
 
 export default function TabBar() {
+
+  const location = useLocation();
+  console.log('location', location)
+  const isHomeSelected = location.pathname === "/";
+  const isAdventuresSelected = location.pathname === "/adventures";
   return (
-    <Router>
+    <>
       <div style={styles.tabsContainer}>
         <nav style={styles.tabs}>
-          <Link to="/" style={styles.tab}>Home</Link>
-          <Link to="/adventures" style={styles.tab}>Adventures</Link>
+          <Link to="/" style={{ ...styles.tab, color: isHomeSelected ? Theme.colors.accent : Theme.colors.text, }}>
+            <TiHome size="2rem" />
+            <strong>Home</strong>
+          </Link>
+          <Link to="/adventures" style={{ ...styles.tab, color: isAdventuresSelected ? Theme.colors.accent : Theme.colors.text, }}>
+            <CgMenuGridR size="2rem" />
+            <strong>Adventures</strong>
+          </Link>
         </nav>
       </div>
       <Switch>
@@ -25,7 +39,7 @@ export default function TabBar() {
           <Home />
         </Route>
       </Switch>
-    </Router>
+    </>
   )
 }
 
@@ -38,6 +52,7 @@ const styles = {
     padding: "0 20px",
     zIndex: 10,
     backgroundColor: Theme.colors.background,
+    height: "6rem",
   },
   tabs: {
     display: "flex",
