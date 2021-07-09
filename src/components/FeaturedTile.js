@@ -12,13 +12,16 @@ export default function FeaturedTile(props) {
     container: {
       width: "100vw",
       background: containerBackground,
-      padding: "20px",
       height: height ? height : "auto",
       textDecoration: "none",
+      display: "flex",
+      flexDirection: "column",
+      padding: link ? 0 : "20px",
     },
     link: {
       flex: 1,
-      textDecoration: "none"
+      textDecoration: "none",
+      padding: "20px",
     },
     title: {
       fontSize: "30px",
@@ -41,7 +44,7 @@ export default function FeaturedTile(props) {
 
   if (link) {
     return (
-      <div style={styles.container}>
+      <div style={styles.container} className={imgSrc ? "" : "loading-skeleton"}>
         <Link to={link} style={styles.link}>
           <h2 style={styles.title}>{title}</h2>
           {subtitle && <h4 style={styles.subtitle}>{subtitle}</h4>}

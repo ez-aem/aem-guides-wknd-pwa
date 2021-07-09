@@ -1,6 +1,7 @@
 import FeaturedTile from "../components/FeaturedTile";
 import { HOME_SCREEN_DATA } from "../CONSTANTS";
 import useGraphQL from "../api/useGraphQL";
+import ErrorScreen from "../screens/Error";
 
 function AdventuresList(data) {
   if (!data) return <div>no data</div>;
@@ -20,8 +21,7 @@ export default function Home() {
   let teaserImageSrc = false;
 
   const { data, errorMessage } = useGraphQL(null, HOME_SCREEN_DATA);
-
-  if (errorMessage) return <div>error screen</div>
+  if (errorMessage) return <ErrorScreen error={errorMessage} />;
 
   if (data?.appByPath?.item) teaser = data.appByPath.item;
   if (teaser?.appTitle) teaserTitle = teaser.appTitle;

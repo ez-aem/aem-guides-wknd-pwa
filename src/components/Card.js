@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { Theme } from "../CONSTANTS";
-import getRemoteImageSrc from "../utils/getRemoteImageSrc";
+import Image from "./Image";
 
 const getDescriptionHTML = (html) => ({ __html: html });
 
@@ -10,7 +10,7 @@ export default function Card({ _path, title, description, imgSrc }) {
   return (
     <div style={styles.container}>
       <Link to={`/detail?_path=${_path}`} style={styles.link}>
-        <img src={getRemoteImageSrc(imgSrc)} style={styles.image} alt={title} />
+        <Image imgSrc={imgSrc} title={title} />
         <h5 style={styles.title}>{title}</h5>
         {description && <div dangerouslySetInnerHTML={getDescriptionHTML(description)}></div>}
       </Link>
@@ -20,13 +20,7 @@ export default function Card({ _path, title, description, imgSrc }) {
 
 const styles = {
   container: {
-
-  },
-  image: {
-    width: "100%",
-    maxWidth: "100%",
-    height: "100px",
-    objectFit: "cover",
+    flex: 1,
   },
   link: {
     textDecoration: "none",

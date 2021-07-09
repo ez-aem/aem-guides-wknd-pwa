@@ -3,6 +3,7 @@ import FeaturedTile from "../components/FeaturedTile";
 import useGraphQL from "../api/useGraphQL";
 import { ADVENTURES_DATA } from "../CONSTANTS";
 import Card from "../components/Card";
+import ErrorScreen from "../screens/Error";
 
 function AdventuresList(data) {
   if (!data) return false;
@@ -31,8 +32,7 @@ function AdventuresList(data) {
 export default function Adventures() {
   let adventuresList = false;
   const { data, errorMessage } = useGraphQL(null, ADVENTURES_DATA);
-
-  if (errorMessage) return <div>error screen</div>
+  if (errorMessage) return <ErrorScreen error={errorMessage} />;
 
   if (data?.adventureList?.items) adventuresList = data.adventureList.items;
 
