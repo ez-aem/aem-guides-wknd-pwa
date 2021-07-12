@@ -21,7 +21,7 @@ export default function useGraphQL(query, path) {
 
   useEffect(() => {
     const sdk = new AEMHeadless({ serviceURL: URL, endpoint: GRAPHQL_ENDPOINT })
-    const request = query ? sdk.runQuery.bind(sdk) : sdk.runPersistedQuery.bind(sdk);
+    const request = query ? sdk.runQuery.bind(sdk) : sdk.runPersistedQuery.bind(sdk + '?' + new Date());
 
     request(query || path)
       .then(({ data, errors }) => {
