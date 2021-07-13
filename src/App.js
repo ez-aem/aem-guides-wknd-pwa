@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 import './App.css';
 import { Theme } from "./CONSTANTS";
@@ -7,9 +7,9 @@ import TabBar from "./components/TabBar";
 export default function App() {
   return (
     <div style={styles.container}>
-      <Router>
+      <HashRouter>
         <TabBar />
-      </Router>
+      </HashRouter>
     </div>
   );
 }
