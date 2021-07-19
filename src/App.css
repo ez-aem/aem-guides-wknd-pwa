@@ -7,9 +7,16 @@ h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+  font-family: "Bebas Neue", cursive;
+  margin: 0 0 1rem;
+}
 p {
   margin: 0 0 1rem;
+}
+
+html {
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .loading-skeleton {
