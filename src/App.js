@@ -2,12 +2,17 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import './App.css';
 import { Theme } from "./CONSTANTS";
+import AEMResponsiveGrid from "./components/aem/aem-responsive-grid";
 import TabBar from "./components/TabBar";
 
 export default function App() {
+
   return (
     <div style={styles.container}>
       <Router>
+        <AEMResponsiveGrid
+          pagePath='/content/wknd-app/us/en/home'
+          itemPath='root/responsivegrid' />
         <TabBar />
       </Router>
     </div>

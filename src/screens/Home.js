@@ -1,5 +1,7 @@
+import { useState } from "react";
+
 import FeaturedTile from "../components/FeaturedTile";
-import { HOME_SCREEN_DATA } from "../CONSTANTS";
+import { ADVENTURES_DATA } from "../CONSTANTS";
 import useGraphQL from "../api/useGraphQL";
 import ErrorScreen from "../screens/Error";
 
@@ -20,7 +22,11 @@ export default function Home() {
   let teaserTitle = false;
   let teaserImageSrc = false;
 
-  const { data, errorMessage } = useGraphQL(null, HOME_SCREEN_DATA);
+
+  const [query, setQuery] = useState(null);
+  const persistentQuery = 'wknd/adventures-all';
+  const { data, errorMessage } = useGraphQL(query, persistentQuery);
+
   if (errorMessage) return <ErrorScreen error={errorMessage} />;
 
   if (data?.appByPath?.item) teaser = data.appByPath.item;

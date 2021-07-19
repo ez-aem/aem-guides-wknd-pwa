@@ -11,7 +11,6 @@ import Detail from "../screens/Detail";
 export default function TabBar() {
 
   const location = useLocation();
-  console.log('location', location)
   const isHomeSelected = location.pathname === "/";
   const isAdventuresSelected = location.pathname === "/adventures";
   return (
@@ -22,7 +21,7 @@ export default function TabBar() {
             <TiHome size="2rem" />
             <strong>Home</strong>
           </Link>
-          <Link to="/adventures" style={{ ...styles.tab, color: isAdventuresSelected ? Theme.colors.accent : Theme.colors.text, }}>
+          <Link to="/" style={{ ...styles.tab, color: isAdventuresSelected ? Theme.colors.accent : Theme.colors.text, }}>
             <CgMenuGridR size="2rem" />
             <strong>Adventures</strong>
           </Link>

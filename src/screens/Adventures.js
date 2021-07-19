@@ -1,5 +1,5 @@
+import { useState } from "react";
 import FeaturedTile from "../components/FeaturedTile";
-
 import useGraphQL from "../api/useGraphQL";
 import { ADVENTURES_DATA } from "../CONSTANTS";
 import Card from "../components/Card";
@@ -31,7 +31,11 @@ function AdventuresList(data) {
 
 export default function Adventures() {
   let adventuresList = false;
-  const { data, errorMessage } = useGraphQL(null, ADVENTURES_DATA);
+  const [query, setQuery] = useState('');
+  const persistentQuery = 'wknd/adventures-all';
+  //Use a custom React Hook to execute the GraphQL query
+  const { data, errorMessage } = useGraphQL(query, persistentQuery);
+
   if (errorMessage) return <ErrorScreen error={errorMessage} />;
 
   if (data?.adventureList?.items) adventuresList = data.adventureList.items;
@@ -44,10 +48,10 @@ export default function Adventures() {
         height="100px"
       />
       <h2 style={styles.title}>Our Adventures</h2>
-      {AdventuresList(adventuresList)}
     </div>
   )
 }
+// {AdventuresList(adventuresList)}
 
 const styles = {
   container: {
@@ -67,4 +71,35 @@ const styles = {
     gridTemplateColumns: "1fr 1fr",
     gap: "1rem",
   }
+}
+
+function filterQuery(activity) {
+  return `
+    {
+      adventureList (filter: {
+        adventureActivity: {
+          _expressions: [
+            {
+              value: "${activity}"
+            }
+          ]
+        }
+      }){
+        items {
+          _path
+        adventureTitle
+        adventurePrice
+        adventureTripLength
+        adventurePrimaryImage {
+          ... on ImageRef {
+            _path
+            mimeType
+            width
+            height
+          }
+        }
+      }
+    }
+  }
+  `;
 }
