@@ -11,7 +11,7 @@ export default function Card({ _path, title, description, imgSrc }) {
     <div style={styles.container}>
       <Link to={`/detail?_path=${_path}`} style={styles.link}>
         <Image imgSrc={imgSrc} title={title} />
-        <h5 style={styles.title}>{title}</h5>
+        <h3 style={styles.title}>{title}</h3>
         {description && <div dangerouslySetInnerHTML={getDescriptionHTML(description)}></div>}
       </Link>
     </div>
@@ -28,7 +28,10 @@ const styles = {
   },
   title: {
     textTransform: "uppercase",
-    marginTop: ".5rem"
+    marginTop: ".5rem",
+    fontFamily: "Source Sans Pro",
+    fontWeight: "bold",
+    fontSize: ".9rem",
   },
   description: {
     margin: 0,

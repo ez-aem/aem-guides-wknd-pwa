@@ -32,7 +32,6 @@ export default function FeaturedTile(props) {
       fontSize: "16px",
       color: textColor,
       fontWeight: "bold",
-      textTransform: "uppercase",
       margin: 0,
     },
     imgBG: {
@@ -55,7 +54,7 @@ export default function FeaturedTile(props) {
     <>
       {!title && <div style={styles.titleSkeleton} className="loading-skeleton"></div>}
       {title && <h2 style={styles.title}>{title}</h2>}
-      {subtitle && <h4 style={styles.subtitle}>{subtitle}</h4>}
+      {subtitle && <p style={styles.subtitle}>{subtitle}</p>}
     </>
   )
 
