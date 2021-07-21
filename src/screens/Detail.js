@@ -5,7 +5,6 @@ import { ARTICLE_DATA } from "../CONSTANTS";
 import ErrorScreen from "../screens/Error";
 import Image from "../components/Image";
 
-const getDescriptionHTML = (html) => ({ __html: html });
 
 export default function Detail() {
 
@@ -15,7 +14,7 @@ export default function Detail() {
   if (errorMessage) return <ErrorScreen error={errorMessage} />;
 
   const title = data?.adventureByPath?.item?.adventureTitle || false;
-  const description = data?.adventureByPath?.item?.adventureDescription?.html || false;
+  const descriptionJSON = data?.adventureByPath?.item?.adventureDescription?.json || false;
   const imgSrc = data?.adventureByPath?.item?.adventurePrimaryImage?._path || false;
 
   return (
@@ -23,7 +22,12 @@ export default function Detail() {
       {!title && <div className="loading-skeleton" style={styles.titleSkeleton}></div>}
       {title && <h1 style={styles.title}>{title}</h1>}
       <Image imgSrc={imgSrc} alt={title} />
-      {description && <div style={styles.description} dangerouslySetInnerHTML={getDescriptionHTML(description)}></div>}
+      <div style={styles.description}>
+        {descriptionJSON && descriptionJSON.map((node, key) => {
+          const Element = node.nodeType === "header" ? `${node.style}` : "p";
+          return <Element key={key}>{node.content.map(({ value }) => value)}</Element>
+        })}
+      </div>
     </div>
   )
 }
