@@ -11,7 +11,6 @@ import Detail from "../screens/Detail";
 export default function TabBar() {
 
   const location = useLocation();
-  console.log('location', location)
   const isHomeSelected = location.pathname === "/";
   const isAdventuresSelected = location.pathname === "/adventures";
   return (

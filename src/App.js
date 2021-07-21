@@ -20,6 +20,7 @@ const styles = {
     flex: 1,
     minHeight: "100vh",
     width: "100vw",
+    maxWidth: "100%",
     position: "relative",
     flexDirection: "column",
     backgroundColor: Theme.colors.background,

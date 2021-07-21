@@ -14,12 +14,14 @@ function AdventuresList(data) {
         const _path = item._path;
         const title = item?.adventureTitle || false;
         const description = item?.adventureDescription?.html || false;
+        const descriptionJSON = item?.adventureDescription?.json || false;
         const imgSrc = item?.adventurePrimaryImage?._path || false;
         return (
           <Card
             _path={_path}
             title={title}
             description={description}
+            descriptionJSON={descriptionJSON}
             imgSrc={imgSrc}
             key={index}
           />
