@@ -6,11 +6,11 @@ import getRemoteImageSrc from "../utils/getRemoteImageSrc";
 export default function FeaturedTile(props) {
   const { title, imgSrc, subtitle, height, link = "/" } = props;
   const textColor = imgSrc ? Theme.colors.background : Theme.colors.text;
-  const containerBackground = imgSrc ? `url(${getRemoteImageSrc(imgSrc)})` : "transparent";
 
   const styles = {
     container: {
       width: "100vw",
+      maxWidth: "100%",
       height: height ? height : "auto",
       textDecoration: "none",
       display: "flex",
@@ -32,15 +32,13 @@ export default function FeaturedTile(props) {
       fontSize: "16px",
       color: textColor,
       fontWeight: "bold",
-      textTransform: "uppercase",
       margin: 0,
     },
     imgBG: {
       flex: 1,
-      background: containerBackground,
+
       padding: link ? 0 : "20px",
       display: "flex",
-      backgroundSize: "cover",
     },
     titleSkeleton: {
       height: "2.5rem",
@@ -50,12 +48,18 @@ export default function FeaturedTile(props) {
   }
 
   if (!height) styles.container.flex = 1;
+  if (imgSrc) {
+    styles.imgBG.background = `url(${getRemoteImageSrc(imgSrc)})`;
+    styles.imgBG.backgroundSize = "cover";
+  } else {
+    styles.imgBG.backgroundColor = "transparent";
+  }
 
   const content = () => (
     <>
       {!title && <div style={styles.titleSkeleton} className="loading-skeleton"></div>}
       {title && <h2 style={styles.title}>{title}</h2>}
-      {subtitle && <h4 style={styles.subtitle}>{subtitle}</h4>}
+      {subtitle && <p style={styles.subtitle}>{subtitle}</p>}
     </>
   )
 

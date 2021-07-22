@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 import './App.css';
 import { Theme } from "./CONSTANTS";
@@ -9,12 +9,12 @@ export default function App() {
 
   return (
     <div style={styles.container}>
-      <Router>
+      <HashRouter>
         <AEMResponsiveGrid
           pagePath='/content/wknd-app/us/en/home'
           itemPath='root/responsivegrid' />
         <TabBar />
-      </Router>
+      </HashRouter>
     </div>
   );
 }
@@ -25,6 +25,7 @@ const styles = {
     flex: 1,
     minHeight: "100vh",
     width: "100vw",
+    maxWidth: "100%",
     position: "relative",
     flexDirection: "column",
     backgroundColor: Theme.colors.background,

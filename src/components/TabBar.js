@@ -19,11 +19,11 @@ export default function TabBar() {
         <nav style={styles.tabs}>
           <Link to="/" style={{ ...styles.tab, color: isHomeSelected ? Theme.colors.accent : Theme.colors.text, }}>
             <TiHome size="2rem" />
-            <strong>Home</strong>
+            <span style={styles.tabText}>Home</span>
           </Link>
           <Link to="/" style={{ ...styles.tab, color: isAdventuresSelected ? Theme.colors.accent : Theme.colors.text, }}>
             <CgMenuGridR size="2rem" />
-            <strong>Adventures</strong>
+            <span style={styles.tabText}>Adventures</span>
           </Link>
         </nav>
       </div>
@@ -72,5 +72,7 @@ const styles = {
     padding: "20px",
     textDecoration: "none"
   },
-
+  tabText: {
+    fontFamily: "Source Sans Pro",
+  }
 }

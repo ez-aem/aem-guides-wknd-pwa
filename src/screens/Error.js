@@ -1,9 +1,8 @@
-export default function ErrorScreen(props) {
-  console.log("Error Screen", props)
+export default function ErrorScreen({ error }) {
   return (
     <div>
-      <h2>Error Screen:</h2>
-      <p>{props.error.message}</p>
+      <h1>Error</h1>
+      <span>{error.message}</span>
     </div>
-  )
+  );
 }

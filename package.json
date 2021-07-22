@@ -1,6 +1,7 @@
 {
   "name": "aem-guides-wknd-pwa",
   "version": "0.1.0",
+  "homepage": "https://ez-aem.github.io/aem-guides-wknd-pwa/",
   "private": true,
   "dependencies": {
     "@adobe/aem-core-components-react-base": "^1.1.8",
