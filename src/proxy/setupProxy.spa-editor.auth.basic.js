@@ -6,6 +6,7 @@ const { REACT_APP_HOST_URI, REACT_APP_AUTHORIZATION } = process.env;
     In a production environment this proxy should be set up at the webserver level or absolute URLs should be used.
 */
 module.exports = function (app) {
+
   /**
   * Filter to check if the request should be re-routed to AEM. The paths to be re-routed at:
   * - Starts with /content (AEM content)
@@ -18,7 +19,7 @@ module.exports = function (app) {
   */
   const toAEM = function (path, req) {
     return path.startsWith('/content') ||
-      path.startsWith('/graphql') ||
+      path.startsWith('/graphq') ||
       path.endsWith('.model.json')
   }
 
@@ -32,7 +33,6 @@ module.exports = function (app) {
   * @returns returns a re-written path, or nothing to use the @param path
   */
   const pathRewriteToAEM = function (path, req) {
-    console.log("pathRewriteToAEM", path)
     if (path === '/.model.json') {
       return '/content/wknd-app/us/en/home.model.json';
     } else if (path.startsWith('/adventure:') && path.endsWith('.model.json')) {
@@ -51,13 +51,7 @@ module.exports = function (app) {
         changeOrigin: true,
         // Pass in credentials when developing against an Author environment
         auth: REACT_APP_AUTHORIZATION,
-        pathRewrite: pathRewriteToAEM, // Rewrite SPA paths being sent to AEM
-        onProxyReq: (proxyReq, req, res) => {
-          proxyReq.setHeader["Access-Control-Allow-Origin"] = REACT_APP_HOST_URI;
-        },
-        headers: {
-          "Access-Control-Allow-Origin": REACT_APP_HOST_URI
-        }
+        pathRewrite: pathRewriteToAEM // Rewrite SPA paths being sent to AEM
       }
     )
   );

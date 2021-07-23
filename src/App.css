@@ -9,10 +9,31 @@ h4,
 h5,
 h6 {
   font-family: "Bebas Neue", sans-serif;
-  margin: 0 0 1rem;
   font-weight: normal;
   font-size: 1.675rem;
+  line-height: 1.1;
+  margin: 0;
 }
+
+.detail-screen h1,
+.detail-screen h2,
+.detail-screen h3,
+.detail-screen h4,
+.detail-screen h5,
+.detail-screen h6 {
+  margin: 0 0 1rem;
+}
+
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+h6 > a {
+  text-decoration: none;
+  color: inherit;
+}
+
 p {
   margin: 0 0 1rem;
 }
@@ -33,4 +54,8 @@ html {
   to {
     background-position: 100vw 0;
   }
+}
+
+img {
+  max-width: 100%;
 }

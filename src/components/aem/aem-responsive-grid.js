@@ -1,3 +1,5 @@
+import "./aem-responsive-grid.css";
+
 // Import the withMappable API provided bu the AEM SPA Editor JS SDK
 import { withMappable, MapTo } from '@adobe/aem-react-editable-components';
 

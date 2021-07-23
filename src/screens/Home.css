@@ -1,0 +1,10 @@
+.homepage-hero-image-wrapper div:first-child,
+.homepage-hero-image-wrapper .cmp-image,
+.homepage-hero-image-wrapper .cmp-image__image {
+  width: 100%;
+  height: 100%;
+}
+
+.homepage-hero-image-wrapper .cmp-image__image {
+  object-fit: cover;
+}

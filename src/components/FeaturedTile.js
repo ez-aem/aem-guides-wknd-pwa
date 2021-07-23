@@ -4,8 +4,12 @@ import { Theme } from "../CONSTANTS";
 import getRemoteImageSrc from "../utils/getRemoteImageSrc";
 
 export default function FeaturedTile(props) {
-  const { title, imgSrc, subtitle, height, link = "/" } = props;
-  const textColor = imgSrc ? Theme.colors.background : Theme.colors.text;
+  const { title, imgSrc, subtitle, height, link = "/", contentWrapperStyles = {} } = props;
+  const textColor = props.textColor ?
+    props.textColor :
+    imgSrc ?
+      Theme.colors.background :
+      Theme.colors.text;
 
   const styles = {
     container: {
@@ -16,22 +20,25 @@ export default function FeaturedTile(props) {
       display: "flex",
       flexDirection: "column",
     },
+    contentWrapper: {
+      ...contentWrapperStyles,
+      padding: "20px",
+      color: textColor
+    },
     link: {
       flex: 1,
       textDecoration: "none",
-      padding: "20px",
     },
     title: {
       fontSize: "30px",
-      color: textColor,
-      fontWeight: "bold",
+      color: "inherit",
       textTransform: "uppercase",
       margin: 0,
     },
     subtitle: {
+      textTransform: "uppercase",
       fontSize: "16px",
-      color: textColor,
-      fontWeight: "bold",
+      color: "inherit",
       margin: 0,
     },
     imgBG: {
@@ -58,8 +65,10 @@ export default function FeaturedTile(props) {
   const content = () => (
     <>
       {!title && <div style={styles.titleSkeleton} className="loading-skeleton"></div>}
-      {title && <h2 style={styles.title}>{title}</h2>}
-      {subtitle && <p style={styles.subtitle}>{subtitle}</p>}
+      {(title || subtitle) && <div style={styles.contentWrapper}>
+        {title && <h2 style={styles.title}>{title}</h2>}
+        {subtitle && <p style={styles.subtitle}>{subtitle}</p>}
+      </div>}
     </>
   )
 

@@ -1,8 +1,11 @@
-import { HashRouter } from "react-router-dom";
+import React from "react";
+import { HashRouter, Switch, Route } from "react-router-dom";
+import Adventures from "./screens/Adventures";
+import Detail from "./screens/Detail";
+import Home from "./screens/Home";
 
 import './App.css';
 import { Theme } from "./CONSTANTS";
-import AEMResponsiveGrid from "./components/aem/aem-responsive-grid";
 import TabBar from "./components/TabBar";
 
 export default function App() {
@@ -10,9 +13,17 @@ export default function App() {
   return (
     <div style={styles.container}>
       <HashRouter>
-        <AEMResponsiveGrid
-          pagePath='/content/wknd-app/us/en/home'
-          itemPath='root/responsivegrid' />
+        <Switch>
+          <Route exact path="/adventures">
+            <Adventures />
+          </Route>
+          <Route path="/detail">
+            <Detail />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
         <TabBar />
       </HashRouter>
     </div>
