@@ -79,6 +79,8 @@ const styles = {
     justifySelf: "center",
     marginTop: ".5rem",
     textAlign: "center",
+    zIndex: 10,
+    position: "relative",
   },
   homepageHeroTitle: {
     color: Theme.colors.background,
