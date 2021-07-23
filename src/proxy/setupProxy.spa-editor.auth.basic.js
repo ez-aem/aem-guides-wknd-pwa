@@ -35,6 +35,8 @@ module.exports = function (app) {
   const pathRewriteToAEM = function (path, req) {
     if (path === '/.model.json') {
       return '/content/wknd-app/us/en/home.model.json';
+      // } else if (path === "/asset-manifest.model.json") {
+      // return "asset-manifest.json"
     } else if (path.startsWith('/adventure:') && path.endsWith('.model.json')) {
       return '/content/wknd-app/us/en/home/adventure/' + path.split('/').pop();
     }
