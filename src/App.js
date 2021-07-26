@@ -43,12 +43,13 @@ const styles = {
     display: "flex",
     flex: 1,
     minHeight: "100vh",
+    maxHeight: "100%",
     width: "100vw",
     maxWidth: "100%",
     position: "relative",
     flexDirection: "column",
     backgroundColor: Theme.colors.background,
     paddingTop: "10px",
-    color: Theme.colors.text
+    color: Theme.colors.text,
   },
 }

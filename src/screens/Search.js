@@ -1,6 +1,10 @@
 import { Theme } from "../CONSTANTS";
-import AEMImage from "../components/aem/aem-image";
 import AEMTitle from "../components/aem/aem-title";
+import AEMText from "../components/aem/aem-text";
+import AEMTeaser from "../components/aem/aem-teaser";
+import AEMImage from "../components/aem/aem-image";
+import AEMResponsiveGrid from "../components/aem/aem-responsive-grid";
+import AEMCarousel from "../components/aem/aem-carousel";
 
 export default function Search() {
   const pagePath = "/content/wknd-app/us/en/home/search";
@@ -17,7 +21,6 @@ export default function Search() {
           </div>
           <input style={styles.homepageHeroSearch} placeholder="Find Adventures Near You" />
         </div>
-        Search Box
       </div>
       <div style={styles.searchResults}>Search Results</div>
     </div>
@@ -26,8 +29,14 @@ export default function Search() {
 
 const styles = {
   container: {},
-  searchBox: {},
-  searchResults: {},
+  searchBox: {
+    height: "10rem",
+    position: "relative",
+    overflow: "hidden"
+  },
+  searchResults: {
+    padding: "1rem"
+  },
   homepageHero: {
     flex: 1,
     position: "relative",

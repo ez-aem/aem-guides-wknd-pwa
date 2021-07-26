@@ -13,8 +13,10 @@ const truncate = (text) => {
 export default function Card({ _path, title, description, imgSrc, descriptionJSON }) {
 
   let descriptionText = false;
-  const filteredJSON = descriptionJSON.filter(({ nodeType }) => nodeType !== "header");
-  if (filteredJSON.length > 0) descriptionText = truncate(filteredJSON[0].content[0].value);
+  if (descriptionJSON) {
+    const filteredJSON = descriptionJSON.filter(({ nodeType }) => nodeType !== "header");
+    if (filteredJSON.length > 0) descriptionText = truncate(filteredJSON[0].content[0].value);
+  }
 
   return (
     <div style={styles.container}>
@@ -38,9 +40,9 @@ const styles = {
   title: {
     textTransform: "uppercase",
     marginTop: ".5rem",
-    fontFamily: "Source Sans Pro",
-    fontWeight: "bold",
-    fontSize: ".9rem",
+    // fontFamily: "Source Sans Pro",
+    // fontWeight: "bold",
+    // fontSize: ".9rem",
   },
   description: {
     margin: 0,

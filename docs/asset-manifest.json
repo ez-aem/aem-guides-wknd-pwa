@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/aem-guides-wknd-pwa/static/css/main.9d8d7de1.chunk.css",
-    "main.js": "/aem-guides-wknd-pwa/static/js/main.8eab54b6.chunk.js",
-    "main.js.map": "/aem-guides-wknd-pwa/static/js/main.8eab54b6.chunk.js.map",
-    "runtime-main.js": "/aem-guides-wknd-pwa/static/js/runtime-main.90626521.js",
-    "runtime-main.js.map": "/aem-guides-wknd-pwa/static/js/runtime-main.90626521.js.map",
-    "static/js/2.b8f68327.chunk.js": "/aem-guides-wknd-pwa/static/js/2.b8f68327.chunk.js",
-    "static/js/2.b8f68327.chunk.js.map": "/aem-guides-wknd-pwa/static/js/2.b8f68327.chunk.js.map",
-    "static/js/3.a042f93e.chunk.js": "/aem-guides-wknd-pwa/static/js/3.a042f93e.chunk.js",
-    "static/js/3.a042f93e.chunk.js.map": "/aem-guides-wknd-pwa/static/js/3.a042f93e.chunk.js.map",
+    "main.css": "/aem-guides-wknd-pwa/static/css/main.abc9c8ad.chunk.css",
+    "main.js": "/aem-guides-wknd-pwa/static/js/main.b3b9cfeb.chunk.js",
+    "main.js.map": "/aem-guides-wknd-pwa/static/js/main.b3b9cfeb.chunk.js.map",
+    "runtime-main.js": "/aem-guides-wknd-pwa/static/js/runtime-main.8b0d1c3e.js",
+    "runtime-main.js.map": "/aem-guides-wknd-pwa/static/js/runtime-main.8b0d1c3e.js.map",
+    "static/js/2.815d4c93.chunk.js": "/aem-guides-wknd-pwa/static/js/2.815d4c93.chunk.js",
+    "static/js/2.815d4c93.chunk.js.map": "/aem-guides-wknd-pwa/static/js/2.815d4c93.chunk.js.map",
+    "static/js/3.af821f69.chunk.js": "/aem-guides-wknd-pwa/static/js/3.af821f69.chunk.js",
+    "static/js/3.af821f69.chunk.js.map": "/aem-guides-wknd-pwa/static/js/3.af821f69.chunk.js.map",
     "index.html": "/aem-guides-wknd-pwa/index.html",
-    "static/css/main.9d8d7de1.chunk.css.map": "/aem-guides-wknd-pwa/static/css/main.9d8d7de1.chunk.css.map",
-    "static/js/2.b8f68327.chunk.js.LICENSE.txt": "/aem-guides-wknd-pwa/static/js/2.b8f68327.chunk.js.LICENSE.txt"
+    "static/css/main.abc9c8ad.chunk.css.map": "/aem-guides-wknd-pwa/static/css/main.abc9c8ad.chunk.css.map",
+    "static/js/2.815d4c93.chunk.js.LICENSE.txt": "/aem-guides-wknd-pwa/static/js/2.815d4c93.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.90626521.js",
-    "static/js/2.b8f68327.chunk.js",
-    "static/css/main.9d8d7de1.chunk.css",
-    "static/js/main.8eab54b6.chunk.js"
+    "static/js/runtime-main.8b0d1c3e.js",
+    "static/js/2.815d4c93.chunk.js",
+    "static/css/main.abc9c8ad.chunk.css",
+    "static/js/main.b3b9cfeb.chunk.js"
   ]
 }

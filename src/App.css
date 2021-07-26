@@ -43,6 +43,11 @@ html {
   font-weight: normal;
 }
 
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .loading-skeleton {
   animation: loading 1.5s infinite;
   background: linear-gradient(0.25turn, transparent, #373737, transparent),
@@ -64,4 +69,5 @@ img {
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
