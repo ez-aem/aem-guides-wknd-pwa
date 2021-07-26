@@ -2,6 +2,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { TiHome } from "react-icons/ti";
 import { CgMenuGridR } from "react-icons/cg";
+import { BiNews } from "react-icons/bi";
 
 import { Theme } from "../CONSTANTS";
 
@@ -9,7 +10,8 @@ export default function TabBar() {
 
   const location = useLocation();
   const isHomeSelected = location.pathname === "/";
-  const isAdventuresSelected = location.pathname === "/adventures";
+  const isSearchSelected = location.pathname === "/search";
+  const isMagazineSelected = location.pathname === "/magazine";
   return (
     <>
       <div style={styles.tabsContainer}>
@@ -18,9 +20,13 @@ export default function TabBar() {
             <TiHome size="2rem" />
             <span style={styles.tabText}>Home</span>
           </Link>
-          <Link to="/adventures" style={{ ...styles.tab, color: isAdventuresSelected ? Theme.colors.accent : Theme.colors.text, }}>
+          <Link to="/search" style={{ ...styles.tab, color: isSearchSelected ? Theme.colors.accent : Theme.colors.text, }}>
             <CgMenuGridR size="2rem" />
             <span style={styles.tabText}>Adventures</span>
+          </Link>
+          <Link to="/magazine" style={{ ...styles.tab, color: isMagazineSelected ? Theme.colors.accent : Theme.colors.text, }}>
+            <BiNews size="2rem" />
+            <span style={styles.tabText}>Magazine</span>
           </Link>
         </nav>
       </div>
@@ -30,7 +36,6 @@ export default function TabBar() {
 
 const styles = {
   tabsContainer: {
-    padding: "0 20px",
     zIndex: 10,
     backgroundColor: Theme.colors.background,
     height: "6rem",
@@ -42,7 +47,8 @@ const styles = {
     margin: 0,
     padding: 0,
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "space-evenly",
+    overflow: "hidden",
   },
   tab: {
     display: "flex",
@@ -52,7 +58,8 @@ const styles = {
     color: Theme.colors.text,
     flex: 1,
     padding: "20px",
-    textDecoration: "none"
+    textDecoration: "none",
+    flexBasis: "25%",
   },
   tabText: {
     fontFamily: "Source Sans Pro",

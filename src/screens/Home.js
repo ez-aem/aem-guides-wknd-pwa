@@ -11,6 +11,7 @@ import AEMText from "../components/aem/aem-text";
 import AEMTeaser from "../components/aem/aem-teaser";
 import AEMImage from "../components/aem/aem-image";
 import AEMResponsiveGrid from "../components/aem/aem-responsive-grid";
+import AEMCarousel from "../components/aem/aem-carousel";
 
 
 function AdventuresList(data) {
@@ -33,60 +34,69 @@ function AdventuresList(data) {
     </div>
   ))
 }
+
 export default function Home() {
-  const persistentQuery = "wknd/adventures-all";
-  const { data, errorMessage } = useGraphQL(null, persistentQuery);
+  // const persistentQuery = "wknd/adventures-all";
+  // const { data, errorMessage } = useGraphQL(null, persistentQuery);
   const pagePath = "/content/wknd-app/us/en/home";
 
-  if (errorMessage) return <ErrorScreen error={errorMessage} />;
+  // if (errorMessage) return <ErrorScreen error={errorMessage} />;
 
   return (
-    <div style={styles.container}>
-      {/* <Link to="/adventures" style={styles.homepageHero}> */}
-      <div style={styles.homepageHero}>
+    <div className="content" style={styles.container}>
+      <Link to="/search" style={styles.homepageHero}>
         <div style={styles.homepageHeroImage} className="homepage-hero-image-wrapper">
-          <AEMImage styles={styles.homepageHeroImage} pagePath={pagePath} itemPath="root/image" />
+          <AEMImage key="search-image" styles={styles.homepageHeroImage} pagePath={pagePath} itemPath="root/image" />
         </div>
         <div style={styles.homepageHeroTitleSearch}>
           <div style={styles.homepageHeroTitle}>
-            <AEMTitle styles={styles.homepageHeroTitle} pagePath={pagePath} itemPath="root/title" />
+            <AEMTitle key="search-title" styles={styles.homepageHeroTitle} pagePath={pagePath} itemPath="root/title" />
           </div>
           <input style={styles.homepageHeroSearch} placeholder="Find Adventures Near You" />
         </div>
-      </div>
-      {/* </Link> */}
-      <div style={styles.adventureList}>
-        {AdventuresList(data)}
-      </div>
+      </Link>
+      <Link to="/magazine" style={styles.homepageHero}>
+        <div style={styles.homepageHeroImage} className="homepage-hero-image-wrapper">
+          <AEMImage key="featured-article-image" styles={styles.homepageHeroImage} pagePath={pagePath} itemPath="root/image-featured-articles" />
+        </div>
+        <div style={styles.homepageHeroTitleSearch}>
+          <div style={{ ...styles.homepageHeroTitle, textAlign: "left", paddingLeft: "1rem" }}>
+            <AEMTitle key="featured-article-title" styles={styles.homepageHeroTitle} pagePath={pagePath} itemPath="root/title-featured-articles" />
+          </div>
+        </div>
+      </Link>
     </div>
   );
 }
+//       <div style={styles.adventureList}>
+//         {AdventuresList(data)}
+//       </div>
 
 const styles = {
   container: {
-    flex: 1,
-    display: "grid",
-    gridTemplateRows: "50% 50%"
   },
   homepageHero: {
-    display: "grid",
-    gridTemplateAreas: `"overlay"`,
     flex: 1,
+    position: "relative",
   },
   homepageHeroTitleSearch: {
-    gridArea: "overlay",
-    alignSelf: "flex-start",
-    justifySelf: "center",
+    position: "absolute",
+    top: ".5rem",
+    left: 0,
+    right: 0,
     marginTop: ".5rem",
     textAlign: "center",
     zIndex: 10,
-    position: "relative",
   },
   homepageHeroTitle: {
     color: Theme.colors.background,
   },
   homepageHeroImage: {
-    gridArea: "overlay",
+    position: "absolute",
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
   },
   homepageHeroSearch: {
     gridArea: "overlay",
@@ -107,4 +117,5 @@ const styles = {
     flexDirection: "row",
     overflowX: "auto"
   },
+  carousel: {},
 }

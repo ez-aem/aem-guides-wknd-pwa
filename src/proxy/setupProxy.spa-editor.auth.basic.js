@@ -33,10 +33,12 @@ module.exports = function (app) {
   * @returns returns a re-written path, or nothing to use the @param path
   */
   const pathRewriteToAEM = function (path, req) {
+    console.log("path", path);
+    path = path.replace("/aem-guides-wknd-pwa", "/");
+    if (path.startsWith("//")) path = path.replace("//", "/");
+    console.log("path", path);
     if (path === '/.model.json') {
       return '/content/wknd-app/us/en/home.model.json';
-      // } else if (path === "/asset-manifest.model.json") {
-      // return "asset-manifest.json"
     } else if (path.startsWith('/adventure:') && path.endsWith('.model.json')) {
       return '/content/wknd-app/us/en/home/adventure/' + path.split('/').pop();
     }

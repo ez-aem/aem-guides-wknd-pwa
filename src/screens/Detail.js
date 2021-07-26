@@ -18,7 +18,7 @@ export default function Detail() {
   const imgSrc = data?.adventureByPath?.item?.adventurePrimaryImage?._path || false;
 
   return (
-    <div style={styles.container} className="detail-screen">
+    <div className="content" style={styles.container} className="detail-screen">
       {!title && <div className="loading-skeleton" style={styles.titleSkeleton}></div>}
       {title && <h1 style={styles.title}>{title}</h1>}
       <Image imgSrc={imgSrc} alt={title} />

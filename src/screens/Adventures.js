@@ -43,7 +43,7 @@ export default function Adventures() {
   if (data?.adventureList?.items) adventuresList = data.adventureList.items;
 
   return (
-    <div style={styles.container}>
+    <div className="content" style={styles.container}>
       <FeaturedTile
         imgSrc="/content/dam/wknd/en/adventures/cycling-southern-utah/AdobeStock_221043703.jpg"
         title="WKND Adventures"
