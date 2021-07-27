@@ -1,8 +1,7 @@
 import React, { useState } from "react"
-import { Theme } from "../CONSTANTS";
+import { Link } from 'react-router-dom';
 import Error from "../screens/Error";
 import useGraphQL from "../api/useGraphQL";
-import { Link } from 'react-router-dom';
 
 export default function SearchByCategory() {
 
@@ -26,7 +25,6 @@ export default function SearchByCategory() {
 
   return (
     <div>
-      <h2>WHAT TYPE OF ADVENTURE ARE YOU LOOKING FOR?</h2>
       <div className="overflow-x-list-container">
         <ul className="overflow-x-list">
           {categories && Object.keys(categories).map((key, index) => {

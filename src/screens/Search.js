@@ -28,6 +28,7 @@ export default function Search() {
         </div>
       </div>
       <div style={styles.searchByCategory}>
+        <AEMTitle key="search-title-categories" styles={styles.homepageHeroTitle} pagePath={pagePath} itemPath="root/title-categories" />
         <SearchByCategory />
       </div>
     </div>
