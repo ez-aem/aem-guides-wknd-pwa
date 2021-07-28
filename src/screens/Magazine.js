@@ -20,12 +20,11 @@ function AdventuresList(data) {
         const title = item?.adventureTitle || false;
         const imgSrc = item?.adventurePrimaryImage?._path || false;
         return (
-          <div style={styles.adventureCard}>
+          <div style={styles.adventureCard} key={index}>
             <Card
               _path={_path}
               title={title}
               imgSrc={imgSrc}
-              key={index}
             />
           </div>
         );
@@ -35,7 +34,7 @@ function AdventuresList(data) {
 }
 
 export default function Magazine() {
-  const pagePath = "/content/wknd-app/us/en/home/magazine";
+  const pagePath = "/content/wknd-app/us/en/magazine";
   let adventuresList = false;
   const [query, setQuery] = useState('');
   const persistentQuery = 'wknd/adventures-all';

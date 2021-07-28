@@ -1,0 +1,35 @@
+.search-by-category-container {
+  overflow: hidden;
+}
+
+.search-by-category {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.search-by-category-item {
+  width: 30vw;
+  min-width: 30vw;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.search-by-category-item-image {
+  width: 25vw;
+  height: 150px;
+  object-fit: cover;
+}
+
+.search-by-category-item-image.selected {
+  border: 3px solid #ffeb00;
+}
+
+.search-by-category-item a {
+  color: white;
+  text-decoration: none;
+}

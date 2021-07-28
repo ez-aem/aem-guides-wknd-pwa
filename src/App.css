@@ -71,35 +71,3 @@ img {
   flex-direction: column;
   overflow: auto;
 }
-
-.overflow-x-list-container {
-  overflow: hidden;
-}
-
-.overflow-x-list {
-  margin: 1rem 0;
-  padding: 0;
-  list-style: none;
-  overflow: auto;
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-}
-
-.overflow-x-list-item {
-  width: 30vw;
-  min-width: 30vw;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.overflow-x-list-item-image {
-  width: 25vw;
-  height: 150px;
-  object-fit: cover;
-}
-
-.overflow-x-list-item a {
-  color: white;
-  text-decoration: none;
-}

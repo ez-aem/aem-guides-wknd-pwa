@@ -22,7 +22,6 @@ module.exports = function (app) {
   * @returns true if the SPA request should be re-routed to AEM
   */
   const toAEM = function (path, req) {
-    console.log("path", path);
     return path.startsWith('/content') ||
       path.startsWith('/graphq') ||
       path.endsWith('.model.json')
@@ -38,10 +37,8 @@ module.exports = function (app) {
   * @returns returns a re-written path, or nothing to use the @param path
   */
   const pathRewriteToAEM = function (path, req) {
-    console.log("rewrite path", path);
     path = path.replace("/aem-guides-wknd-pwa", "/");
     if (path.startsWith("//")) path = path.replace("//", "/");
-    console.log("rewrite path", path);
     if (path === '/.model.json') {
       return '/content/wknd-app/us/en/home.model.json';
     } else if (path.startsWith('/adventure:') && path.endsWith('.model.json')) {

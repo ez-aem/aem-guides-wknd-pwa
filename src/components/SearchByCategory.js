@@ -2,9 +2,11 @@ import React, { useState } from "react"
 import { Link } from 'react-router-dom';
 import Error from "../screens/Error";
 import useGraphQL from "../api/useGraphQL";
+import "./SearchByCategory.css";
 
 export default function SearchByCategory() {
 
+  const [selectedActivity, setSelectedActivity] = useState(false);
   const [query, setQuery] = useState(adventureListQuery);
   const [categories, setCategories] = useState(false);
   const [categoryItems, setCategoryItems] = useState([]);
@@ -20,30 +22,37 @@ export default function SearchByCategory() {
     setCategories(getCategoriesFromData(data.adventureList.items))
   }
 
-  console.log("data", data);
-  console.log("categories", categories);
+  const setCategory = (activity) => {
+    setSelectedActivity(activity);
+    setCategoryItems(getCategoryItemsByKey(data.adventureList.items, activity))
+  }
 
   return (
     <div>
-      <div className="overflow-x-list-container">
-        <ul className="overflow-x-list">
+      <div className="search-by-category-container">
+        <ul className="search-by-category">
           {categories && Object.keys(categories).map((key, index) => {
             const category = categories[key];
+            const selectedClassName = selectedActivity === category.adventureActivity ? "selected" : "";
             return (
-              <li className="overflow-x-list-item" onClick={() => setCategoryItems(getCategoryItemsByKey(data.adventureList.items, category.adventureActivity))}>
-                <img className="overflow-x-list-item-image" src={category.adventurePrimaryImage._path} alt={category.adventureTitle} />
+              <li className="search-by-category-item" onClick={() => setCategory(category.adventureActivity)}>
+                <img
+                  className={`search-by-category-item-image ${selectedClassName}`}
+                  src={category.adventurePrimaryImage._path}
+                  alt={category.adventureTitle}
+                />
                 <p>{category.adventureActivity}</p>
               </li>
             )
           })}
         </ul>
       </div>
-      <div className="overflow-x-list-container">
-        <ul className="overflow-x-list">
+      <div className="search-by-category-container">
+        <ul className="search-by-category">
           {categoryItems && categoryItems.map(item => (
-            <li className="overflow-x-list-item">
+            <li className="search-by-category-item">
               <Link to={`/detail?_path=${item._path}`}>
-                <img className="overflow-x-list-item-image" src={item.adventurePrimaryImage._path} alt={item.adventureTitle} />
+                <img className="search-by-category-item-image" src={item.adventurePrimaryImage._path} alt={item.adventureTitle} />
                 <p>{item.adventureTitle}</p>
               </Link>
             </li>
