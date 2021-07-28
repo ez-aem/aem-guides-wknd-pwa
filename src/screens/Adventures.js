@@ -1,7 +1,6 @@
 import { useState } from "react";
 import FeaturedTile from "../components/FeaturedTile";
 import useGraphQL from "../api/useGraphQL";
-import { ADVENTURES_DATA } from "../CONSTANTS";
 import Card from "../components/Card";
 import ErrorScreen from "../screens/Error";
 
