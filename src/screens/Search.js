@@ -24,7 +24,7 @@ export default function Search() {
           <div style={styles.homepageHeroTitle}>
             <AEMTitle key="search-title" styles={styles.homepageHeroTitle} pagePath={pagePath} itemPath="root/title" />
           </div>
-          <input style={styles.homepageHeroSearch} placeholder="Find Adventures Near You" />
+          <input style={styles.homepageHeroSearch} placeholder="Find Your Next Adventure" />
         </div>
       </div>
       <div style={styles.searchByCategory}>
@@ -82,26 +82,4 @@ const styles = {
   searchByCategory: {
     padding: "1rem",
   }
-}
-
-// Render individual Adventure item
-function AdventureItem(props) {
-
-  //Must have title, path, and image
-  if (!props || !props._path || !props.adventureTitle || !props.adventurePrimaryImage) {
-    return null;
-  }
-  return (
-    <li className="adventure-item">
-      <Link to={`/adventure:${props._path}`}>
-        <img className="adventure-item-image" src={props.adventurePrimaryImage._path}
-          alt={props.adventureTitle} />
-      </Link>
-      <div className="adventure-item-length-price">
-        <div className="adventure-item-length">{props.adventureTripLength}</div>
-        <div className="adventure-item-price">{props.adventurePrice}</div>
-      </div>
-      <div className="adventure-item-title">{props.adventureTitle}</div>
-    </li>
-  );
 }
