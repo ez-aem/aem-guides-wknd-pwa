@@ -35,7 +35,7 @@ export default function SearchByCategory() {
             const category = categories[key];
             const selectedClassName = selectedActivity === category.adventureActivity ? "selected" : "";
             return (
-              <li className="search-by-category-item" onClick={() => setCategory(category.adventureActivity)}>
+              <li key={key} className="search-by-category-item" onClick={() => setCategory(category.adventureActivity)}>
                 <img
                   className={`search-by-category-item-image ${selectedClassName}`}
                   src={category.adventurePrimaryImage._path}
