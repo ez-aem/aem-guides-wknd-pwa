@@ -50,7 +50,7 @@ export default function SearchByCategory() {
       <div className="search-by-category-container">
         <ul className="search-by-category">
           {categoryItems && categoryItems.map(item => (
-            <li className="search-by-category-item">
+            <li key={item._path} className="search-by-category-item">
               <Link to={`/detail?_path=${item._path}`}>
                 <img className="search-by-category-item-image" src={item.adventurePrimaryImage._path} alt={item.adventureTitle} />
                 <p>{item.adventureTitle}</p>
