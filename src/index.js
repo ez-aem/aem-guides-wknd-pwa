@@ -6,7 +6,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 // Initialize the ModelManager before invoking ReactDOM.render(...).
-ModelManager.initializeAsync();
+ModelManager.initializeAsync("/content/wknd-app/us/en");
 
 ReactDOM.render(
   <React.StrictMode>

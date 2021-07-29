@@ -7,11 +7,10 @@ accordance with the terms of the Adobe license agreement accompanying
 it.
 */
 import { useState, useEffect } from 'react';
+import { URL, GRAPHQL_ENDPOINT } from "../CONSTANTS";
 const { AEMHeadless } = require('@adobe/aem-headless-client-js')
 
 
-// environment variable REACT_APP_GRAPHQL_ENDPOINT is used to point to endpoint in AEM
-const { REACT_APP_GRAPHQL_ENDPOINT } = process.env;
 
 /**
  * Custom React Hook to perform a GraphQL query
@@ -23,8 +22,8 @@ function useGraphQL(query, path) {
   let [errorMessage, setErrors] = useState(null);
 
   useEffect(() => {
-    const sdk = new AEMHeadless(REACT_APP_GRAPHQL_ENDPOINT)
-    const request = query ? sdk.postQuery.bind(sdk) : sdk.getQuery.bind(sdk);
+    const sdk = new AEMHeadless({ serviceURL: URL, endpoint: GRAPHQL_ENDPOINT, auth:["admin","admin"] })
+    const request = query ? sdk.runQuery.bind(sdk) : sdk.runPersistedQuery.bind(sdk);
 
     request(query || path)
       .then(({ data, errors }) => {
