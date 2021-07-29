@@ -15,7 +15,7 @@ const EditConfig = {
 };
 
 // MapTo allows the AEM SPA Editor JS SDK to dynamically render components added to SPA Editor Containers
-MapTo(RESOURCE_TYPE)(TitleV2, EditConfig);
+//MapTo(RESOURCE_TYPE)(TitleV2, EditConfig);
 
 // withMappable allows the component to be hardcoded into the SPA; <AEMTitle .../>
 const AEMTitle = withMappable(TitleV2, EditConfig);
