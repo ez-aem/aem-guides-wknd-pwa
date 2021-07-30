@@ -20,7 +20,7 @@ export default function TabBar() {
             <TiHome size="2rem" />
             <span style={styles.tabText}>Home</span>
           </Link>
-          <Link to="/search" style={{ ...styles.tab, color: isSearchSelected ? Theme.colors.accent : Theme.colors.text, }}>
+          <Link to="/adventures" style={{ ...styles.tab, color: isSearchSelected ? Theme.colors.accent : Theme.colors.text, }}>
             <CgMenuGridR size="2rem" />
             <span style={styles.tabText}>Adventures</span>
           </Link>

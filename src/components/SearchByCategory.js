@@ -35,7 +35,10 @@ export default function SearchByCategory() {
             const category = categories[key];
             const selectedClassName = selectedActivity === category.adventureActivity ? "selected" : "";
             return (
-              <li className="search-by-category-item" onClick={() => setCategory(category.adventureActivity)}>
+              <li
+                key={index}
+                className="search-by-category-item"
+                onClick={() => setCategory(category.adventureActivity)}>
                 <img
                   className={`search-by-category-item-image ${selectedClassName}`}
                   src={category.adventurePrimaryImage._path}
@@ -49,8 +52,8 @@ export default function SearchByCategory() {
       </div>
       <div className="search-by-category-container">
         <ul className="search-by-category">
-          {categoryItems && categoryItems.map(item => (
-            <li className="search-by-category-item">
+          {categoryItems && categoryItems.map((item, index) => (
+            <li key={index} className="search-by-category-item">
               <Link to={`/detail?_path=${item._path}`}>
                 <img className="search-by-category-item-image" src={item.adventurePrimaryImage._path} alt={item.adventureTitle} />
                 <p>{item.adventureTitle}</p>
@@ -69,9 +72,7 @@ const getCategoriesFromData = (items) => {
   let categories = {};
   items.forEach(item => {
     const activity = sanitizeActivity(item.adventureActivity);
-    if (!categories.hasOwnProperty(activity)) {
-      categories[activity] = item
-    }
+    if (!categories.hasOwnProperty(activity)) categories[activity] = item;
   })
 
   return categories;

@@ -34,7 +34,7 @@ function AdventuresList(data) {
 }
 
 export default function Magazine() {
-  const pagePath = "/content/wknd-app/us/en/magazine";
+  const pagePath = "/content/wknd-app/us/en/home/magazine";
   let adventuresList = false;
   const [query, setQuery] = useState('');
   const persistentQuery = 'wknd/adventures-all';

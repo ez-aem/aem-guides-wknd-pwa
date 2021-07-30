@@ -3,7 +3,6 @@ import { HashRouter, Switch, Route } from "react-router-dom";
 import Adventures from "./screens/Adventures";
 import Detail from "./screens/Detail";
 import Home from "./screens/Home";
-import Search from "./screens/Search";
 import Magazine from "./screens/Magazine";
 
 import './App.css';
@@ -21,9 +20,6 @@ export default function App() {
           </Route>
           <Route path="/detail">
             <Detail />
-          </Route>
-          <Route path="/search">
-            <Search />
           </Route>
           <Route path="/magazine">
             <Magazine />

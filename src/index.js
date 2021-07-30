@@ -5,8 +5,10 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+const { REACT_APP_CONTENT_PATH } = process.env;
+
 // Initialize the ModelManager before invoking ReactDOM.render(...).
-ModelManager.initializeAsync();
+ModelManager.initializeAsync(REACT_APP_CONTENT_PATH);
 
 ReactDOM.render(
   <React.StrictMode>
