@@ -12,7 +12,7 @@ const { AEMHeadless } = require('@adobe/aem-headless-client-js')
 
 // environment variable REACT_APP_GRAPHQL_ENDPOINT is used to point to endpoint in AEM
 const {
-  REACT_APP_HOST_URI,
+  REACT_APP_PUBLIC_URI,
   REACT_APP_GRAPHQL_ENDPOINT,
   REACT_APP_AUTHORIZATION
 } = process.env;
@@ -28,7 +28,7 @@ function useGraphQL(query, path) {
 
   useEffect(() => {
     const sdk = new AEMHeadless({
-      serviceURL: REACT_APP_HOST_URI,
+      serviceURL: REACT_APP_PUBLIC_URI,
       endpoint: REACT_APP_GRAPHQL_ENDPOINT,
       auth: REACT_APP_AUTHORIZATION,
     })
