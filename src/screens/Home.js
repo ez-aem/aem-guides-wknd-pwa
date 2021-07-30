@@ -2,10 +2,7 @@ import { Link } from "react-router-dom";
 
 import "./Home.css";
 
-import FeaturedTile from "../components/FeaturedTile";
 import { Theme } from "../CONSTANTS";
-import useGraphQL from "../api/useGraphQL";
-import ErrorScreen from "../screens/Error";
 import AEMTitle from "../components/aem/aem-title";
 import AEMText from "../components/aem/aem-text";
 import AEMTeaser from "../components/aem/aem-teaser";
@@ -13,38 +10,13 @@ import AEMImage from "../components/aem/aem-image";
 import AEMResponsiveGrid from "../components/aem/aem-responsive-grid";
 import AEMCarousel from "../components/aem/aem-carousel";
 
-
-function AdventuresList(data) {
-  if (!data) return <FeaturedTile />;
-  return data.adventureList.items.map((item, index) => (
-    <div style={{ width: "85vw" }}>
-      <FeaturedTile
-        key={index}
-        link={`/detail?_path=${item._path}`}
-        height="100%"
-        title={item.adventureTitle}
-        imgSrc={item.adventurePrimaryImage._path || false}
-        contentWrapperStyles={{
-          backgroundColor: "rgba(0,0,0,.5)",
-          width: "50%",
-          height: "100%",
-        }}
-        textColor={Theme.colors.text}
-      />
-    </div>
-  ))
-}
+const { REACT_APP_CONTENT_PATH } = process.env;
+const pagePath = `${REACT_APP_CONTENT_PATH}/home`;
 
 export default function Home() {
-  // const persistentQuery = "wknd/adventures-all";
-  // const { data, errorMessage } = useGraphQL(null, persistentQuery);
-  const pagePath = "/content/wknd-app/us/en/home";
-
-  // if (errorMessage) return <ErrorScreen error={errorMessage} />;
-
   return (
     <div className="content" style={styles.container}>
-      <Link to="/search" style={styles.homepageHero}>
+      <Link to="/adventures" style={styles.homepageHero}>
         <div style={styles.homepageHeroImage} className="homepage-hero-image-wrapper">
           <AEMImage key="search-image" styles={styles.homepageHeroImage} pagePath={pagePath} itemPath="root/image" />
         </div>
@@ -65,12 +37,12 @@ export default function Home() {
           </div>
         </div>
       </Link>
+      {/* <div style={styles.homepageHero}>
+        <AEMCarousel pagePath={pagePath} itemPath="root/carousel" />
+      </div> */}
     </div>
   );
 }
-//       <div style={styles.adventureList}>
-//         {AdventuresList(data)}
-//       </div>
 
 const styles = {
   container: {

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Theme } from "../CONSTANTS";
 import AEMTitle from "../components/aem/aem-title";
 import AEMText from "../components/aem/aem-text";
 import AEMTeaser from "../components/aem/aem-teaser";
@@ -33,12 +32,13 @@ function AdventuresList(data) {
   )
 }
 
+const { REACT_APP_CONTENT_PATH } = process.env;
+const pagePath = `${REACT_APP_CONTENT_PATH}/home/magazine`;
+
 export default function Magazine() {
-  const pagePath = "/content/wknd-app/us/en/magazine";
   let adventuresList = false;
   const [query, setQuery] = useState('');
   const persistentQuery = 'wknd/adventures-all';
-  //Use a custom React Hook to execute the GraphQL query
   const { data, errorMessage } = useGraphQL(query, persistentQuery);
 
   if (errorMessage) return <ErrorScreen error={errorMessage} />
@@ -58,7 +58,7 @@ export default function Magazine() {
 const styles = {
   container: {},
   pageTitle: {
-    padding: ".5rem 1rem 1rem",
+    padding: "1rem",
   },
   adventureCard: {
     padding: "1rem",

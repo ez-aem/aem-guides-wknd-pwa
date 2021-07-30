@@ -10,7 +10,7 @@ export default function TabBar() {
 
   const location = useLocation();
   const isHomeSelected = location.pathname === "/";
-  const isSearchSelected = location.pathname === "/search";
+  const isAdventuresSelected = location.pathname === "/adventures";
   const isMagazineSelected = location.pathname === "/magazine";
   return (
     <>
@@ -20,7 +20,7 @@ export default function TabBar() {
             <TiHome size="2rem" />
             <span style={styles.tabText}>Home</span>
           </Link>
-          <Link to="/search" style={{ ...styles.tab, color: isSearchSelected ? Theme.colors.accent : Theme.colors.text, }}>
+          <Link to="/adventures" style={{ ...styles.tab, color: isAdventuresSelected ? Theme.colors.accent : Theme.colors.text, }}>
             <CgMenuGridR size="2rem" />
             <span style={styles.tabText}>Adventures</span>
           </Link>

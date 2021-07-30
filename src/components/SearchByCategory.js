@@ -80,25 +80,21 @@ const getCategoriesFromData = (items) => {
 const getCategoryItemsByKey = (items, activity) => items.filter(item => item.adventureActivity === activity);
 
 const adventureListQuery = `
-      {
-        adventureList {
-        items {
+  {
+    adventureList {
+      items {
         _path
         adventureActivity
-      adventureTitle
-      adventurePrimaryImage {
-        ...on ImageRef {
-        _path
+        adventureTitle
+        adventurePrimaryImage {
+          ...on ImageRef {
+            _path
             mimeType
-      width
-      height
+            width
+            height
           }
         }
       }
     }
-  }
-      `;
+  }`
 
-const styles = {
-
-}
