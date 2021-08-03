@@ -41,7 +41,7 @@ export default function SearchByCategory() {
                   src={category.adventurePrimaryImage._path}
                   alt={category.adventureTitle}
                 />
-                <p>{category.adventureActivity}</p>
+                <p>{category.adventureActivity || "Miscellaneous"}</p>
               </li>
             )
           })}
@@ -68,9 +68,12 @@ const sanitizeActivity = (activity) => activity.toLowerCase().replace(" ", "-");
 const getCategoriesFromData = (items) => {
   let categories = {};
   items.forEach(item => {
-    const activity = sanitizeActivity(item.adventureActivity);
-    if (!categories.hasOwnProperty(activity)) {
-      categories[activity] = item
+    if (!item.adventureActivity) categories.miscellaneous = item;
+    else {
+      const activity = sanitizeActivity(item.adventureActivity);
+      if (!categories.hasOwnProperty(activity)) {
+        categories[activity] = item
+      }
     }
   })
 
