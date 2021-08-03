@@ -6,21 +6,32 @@ NOTICE: Adobe permits you to use, modify, and distribute this file in
 accordance with the terms of the Adobe license agreement accompanying
 it.
 */
-import { useState, useEffect } from "react";
-import { AEMHeadless } from "@adobe/aem-headless-client-js";
-import { URL, GRAPHQL_ENDPOINT } from "../CONSTANTS";
+import { useState, useEffect } from 'react';
+const { AEMHeadless } = require('@adobe/aem-headless-client-js')
+
+
+// environment variable REACT_APP_GRAPHQL_ENDPOINT is used to point to endpoint in AEM
+const {
+  REACT_APP_PUBLIC_URI,
+  REACT_APP_GRAPHQL_ENDPOINT,
+  REACT_APP_AUTHORIZATION
+} = process.env;
 
 /**
  * Custom React Hook to perform a GraphQL query
  * @param query - GraphQL query
  * @param path - Persistent query path
  */
-export default function useGraphQL(query, path) {
+function useGraphQL(query, path) {
   let [data, setData] = useState(null);
   let [errorMessage, setErrors] = useState(null);
 
   useEffect(() => {
-    const sdk = new AEMHeadless({ serviceURL: URL, endpoint: GRAPHQL_ENDPOINT })
+    const sdk = new AEMHeadless({
+      serviceURL: REACT_APP_PUBLIC_URI,
+      endpoint: REACT_APP_GRAPHQL_ENDPOINT,
+      auth: REACT_APP_AUTHORIZATION,
+    })
     const request = query ? sdk.runQuery.bind(sdk) : sdk.runPersistedQuery.bind(sdk);
 
     request(query || path)
@@ -49,3 +60,5 @@ export default function useGraphQL(query, path) {
 function mapErrors(errors) {
   return errors.map((error) => error.message).join(",");
 }
+
+export default useGraphQL

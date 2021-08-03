@@ -1,0 +1,91 @@
+.aem-Grid {
+  display: grid;
+}
+
+.aem-Grid--default--12 {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.aem-Grid-newComponent,
+.aem-GridColumn {
+  grid-column: calc(1 + var(--aem-grid-column-offset, 0)) /
+    calc(1 + var(--aem-grid-column-width));
+}
+
+.aem-GridColumn--default--1 {
+  --aem-grid-column-width: 1;
+}
+.aem-GridColumn--default--2 {
+  --aem-grid-column-width: 2;
+}
+.aem-GridColumn--default--3 {
+  --aem-grid-column-width: 3;
+}
+.aem-GridColumn--default--4 {
+  --aem-grid-column-width: 4;
+}
+.aem-GridColumn--default--5 {
+  --aem-grid-column-width: 5;
+}
+.aem-GridColumn--default--6 {
+  --aem-grid-column-width: 6;
+}
+.aem-GridColumn--default--7 {
+  --aem-grid-column-width: 7;
+}
+.aem-GridColumn--default--8 {
+  --aem-grid-column-width: 8;
+}
+.aem-GridColumn--default--9 {
+  --aem-grid-column-width: 9;
+}
+.aem-GridColumn--default--10 {
+  --aem-grid-column-width: 10;
+}
+.aem-GridColumn--default--11 {
+  --aem-grid-column-width: 11;
+}
+.aem-GridColumn--default--12 {
+  --aem-grid-column-width: 12;
+}
+
+.aem-GridColumn--offset--default--0 {
+  --aem-grid-column-offset: 0;
+}
+.aem-GridColumn--offset--default--1 {
+  --aem-grid-column-offset: 1;
+}
+.aem-GridColumn--offset--default--2 {
+  --aem-grid-column-offset: 2;
+}
+.aem-GridColumn--offset--default--3 {
+  --aem-grid-column-offset: 3;
+}
+.aem-GridColumn--offset--default--4 {
+  --aem-grid-column-offset: 4;
+}
+.aem-GridColumn--offset--default--5 {
+  --aem-grid-column-offset: 5;
+}
+.aem-GridColumn--offset--default--6 {
+  --aem-grid-column-offset: 6;
+}
+.aem-GridColumn--offset--default--7 {
+  --aem-grid-column-offset: 7;
+}
+.aem-GridColumn--offset--default--8 {
+  --aem-grid-column-offset: 8;
+}
+.aem-GridColumn--offset--default--9 {
+  --aem-grid-column-offset: 9;
+}
+.aem-GridColumn--offset--default--10 {
+  --aem-grid-column-offset: 10;
+}
+.aem-GridColumn--offset--default--11 {
+  --aem-grid-column-offset: 11;
+}
+
+.aem-Grid-newComponent {
+  --aem-grid-column-width: 12;
+}

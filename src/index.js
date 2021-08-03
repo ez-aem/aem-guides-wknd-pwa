@@ -1,14 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { ModelManager } from "@adobe/aem-spa-page-model-manager";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+
+const { REACT_APP_CONTENT_PATH } = process.env;
+
+// Initialize the ModelManager before invoking ReactDOM.render(...).
+ModelManager.initializeAsync(REACT_APP_CONTENT_PATH);
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

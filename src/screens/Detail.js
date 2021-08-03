@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 
 import useGraphQL from "../api/useGraphQL";
-import { ARTICLE_DATA } from "../CONSTANTS";
 import ErrorScreen from "../screens/Error";
 import Image from "../components/Image";
 
@@ -10,7 +9,8 @@ export default function Detail() {
 
   const query = new URLSearchParams(useLocation().search);
   const _path = query.get("_path");
-  const { data, errorMessage } = useGraphQL(null, `${ARTICLE_DATA}${_path}`);
+
+  const { data, errorMessage } = useGraphQL(adventureDetailQuery(_path));
   if (errorMessage) return <ErrorScreen error={errorMessage} />;
 
   const title = data?.adventureByPath?.item?.adventureTitle || false;
@@ -18,7 +18,7 @@ export default function Detail() {
   const imgSrc = data?.adventureByPath?.item?.adventurePrimaryImage?._path || false;
 
   return (
-    <div style={styles.container}>
+    <div className="content detail-screen" style={styles.container}>
       {!title && <div className="loading-skeleton" style={styles.titleSkeleton}></div>}
       {title && <h1 style={styles.title}>{title}</h1>}
       <Image imgSrc={imgSrc} alt={title} />
@@ -35,7 +35,6 @@ export default function Detail() {
 const styles = {
   container: {
     flex: 1,
-    marginBottom: "6rem",
   },
   title: {
     padding: "1rem",
@@ -52,4 +51,39 @@ const styles = {
     width: "85%",
     margin: "1rem"
   }
+}
+
+function adventureDetailQuery(_path) {
+  return `{
+    adventureByPath (_path: "${_path}") {
+      item {
+        _path
+          adventureTitle
+          adventureActivity
+          adventureType
+          adventurePrice
+          adventureTripLength
+          adventureGroupSize
+          adventureDifficulty
+          adventurePrice
+          adventurePrimaryImage {
+            ... on ImageRef {
+              _path
+              mimeType
+              width
+              height
+            }
+          }
+          adventureDescription {
+            html
+            json
+          }
+          adventureItinerary {
+            html
+            json
+          }
+      }
+    }
+  }
+  `;
 }
