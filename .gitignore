@@ -17,6 +17,7 @@
 .env.development
 .env.test
 .env.production
+.env.github
 .env.development.local
 .env.test.local
 .env.production.local
