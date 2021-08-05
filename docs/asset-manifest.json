@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/aem-guides-wknd-pwa/static/css/main.4b3e6a57.chunk.css",
-    "main.js": "/aem-guides-wknd-pwa/static/js/main.d680ea9a.chunk.js",
-    "main.js.map": "/aem-guides-wknd-pwa/static/js/main.d680ea9a.chunk.js.map",
+    "main.js": "/aem-guides-wknd-pwa/static/js/main.4983c82e.chunk.js",
+    "main.js.map": "/aem-guides-wknd-pwa/static/js/main.4983c82e.chunk.js.map",
     "runtime-main.js": "/aem-guides-wknd-pwa/static/js/runtime-main.2d974ec5.js",
     "runtime-main.js.map": "/aem-guides-wknd-pwa/static/js/runtime-main.2d974ec5.js.map",
     "static/js/2.f6b642f7.chunk.js": "/aem-guides-wknd-pwa/static/js/2.f6b642f7.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.2d974ec5.js",
     "static/js/2.f6b642f7.chunk.js",
     "static/css/main.4b3e6a57.chunk.css",
-    "static/js/main.d680ea9a.chunk.js"
+    "static/js/main.4983c82e.chunk.js"
   ]
 }
