@@ -14,6 +14,7 @@
 # misc
 .DS_Store
 .env.local
+.env.local.remoteHost
 .env.development
 .env.test
 .env.production

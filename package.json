@@ -25,8 +25,10 @@
   "scripts": {
     "start": "react-scripts start",
     "start:cloud": "env-cmd -f .env.production npm run start",
+    "start:local": "env-cmd -f .env.local npm run start",
+    "start:localRemoteHost": "env-cmd -f .env.local.remoteHost npm run start",
     "build": "react-scripts build",
-    "build:local": "env-cmd -f .env.development npm run build",
+    "build:local": "env-cmd -f .env.local npm run build",
     "build:production": "env-cmd -f .env.production npm run build",
     "build:github": "env-cmd -f .env.github npm run build",
     "test": "react-scripts test",

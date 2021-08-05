@@ -1,0 +1,27 @@
+# For usage with Create React App, env variables needs to be prefixed with `REACT_APP_`
+
+# AEM Configuration
+###################
+# URL for AEM Instance - Will need modified to suit your environment
+REACT_APP_HOST_URI=http://localhost:4502
+# Location of GraphQL endpoint on AEM instance - Do not modify
+REACT_APP_GRAPHQL_ENDPOINT=/content/graphql/global/endpoint.json
+# The Content path within AEM that points to the parent of the homepage - Do not modify
+REACT_APP_CONTENT_PATH=/content/wknd-app/us/en
+
+# AUTH (Choose one method)
+##########################
+# **Currently in use** For Basic auth, use AEM ['user','pass'] pair - Modify to suit your environment
+REACT_APP_AUTHORIZATION=["user","pass"]
+# For Bearer auth, use DEV token from Cloud console
+# REACT_APP_DEV_TOKEN=abc123
+# For Service toke auth, provide path to service token file (download file from Cloud console)
+# REACT_APP_SERVICE_TOKEN=auth/service-token.json
+
+# APP 
+####################
+# The base URI the SPA is accessed from - Modify to suit your environment
+REACT_APP_PUBLIC_URI=http://localhost:3000
+
+# Output of built files. Needed for local development
+BUILD_PATH=./docs
