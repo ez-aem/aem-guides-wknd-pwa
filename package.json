@@ -24,6 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:cloud": "env-cmd -f .env.production npm run start",
     "build": "react-scripts build",
     "build:local": "env-cmd -f .env.development npm run build",
     "build:production": "env-cmd -f .env.production npm run build",
